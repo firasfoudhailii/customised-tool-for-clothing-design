@@ -15,7 +15,7 @@ min-height: 100vh;
 img {
     width: 100%;
 }
-.nomad-container{
+.noname-container{
     width: 60%;
     margin: 0 auto;
 
@@ -62,7 +62,7 @@ img {
         font-size: 1rem;
     }
 }
-.nomad-btn{
+.noname-btn{
     display: block;
     width: 100%;
     line-height: 1.4;
@@ -75,7 +75,7 @@ img {
 }
 //Input styles
 
-.nomad-input {
+.noname-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 1rem;
@@ -86,7 +86,8 @@ form {
     text-align: center;
     input[type=text],
     input[type=email],
-    input[type=password]{
+    input[type=password]
+    {
         width: 60%;
     }
 
@@ -103,6 +104,7 @@ form {
 .form-error {
     border: 1px solid red;
 }
+
 ::placeholder {
     color: #606060;
     font-size: 16px;
@@ -111,14 +113,14 @@ form {
     border: 1px solid grey;
     margin-bottom: 1rem;
 }
-#buy-it-now-btn{
+#try-it-now-btn{
     &:hover {
         background-color: #606060;
     }
 }
  @media(min-width : 1024px) {
      form {
-         width: 80%;
+         width: 60%;
          margin: 0 auto;
          input[type=text],
     input[type=email],
@@ -127,3 +129,4 @@ form {
              }
         }
     }
+    

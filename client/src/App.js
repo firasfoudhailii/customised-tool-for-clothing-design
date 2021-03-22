@@ -1,19 +1,30 @@
 import React from 'react'
-import Header from './components/header/header';
-import Hero from './components/hero/hero';
-import Footer from './components/footer/footer';
 import './App.scss';
+import Login from './components/login/login';
+import Signup from './components/signup/signup';
+import { Route, Switch } from "react-router-dom";
+import Homepage from './pages/home-page';
+
 
 
 
 
 function  App() {
 return (
+      
 <div className="App">
-<Header />
-<Hero />
-<Footer />
+<Switch>
+    <Route path='/sign-up' component={Signup} />
+    <Route path='/log-in' component={Login} />
+    <Route path='/Home' component={Homepage} />
+</Switch>
+
+
 </div>
+
+
+    
+
 );
 }
 

@@ -2,9 +2,12 @@ import express from 'express';
 import bodyparser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import decodeJWT from './auth/decodeJWT';
 
 
 const app = express();
+
+app.use(decodeJWT);
 
 app.use(bodyparser.json({ limit: "30mb, extended: true" }));
 app.use(bodyparser.urlencoded({ limit: "30mb, extended: true" }));

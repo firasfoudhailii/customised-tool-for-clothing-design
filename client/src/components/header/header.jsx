@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './header.styles.scss';
 import { menuitems } from './menuitems';
 import { Button } from '../button/Button';
-
+import { auth } from '../../firebase';
+import {useAuth} from '../../context/user-context';
 
 class Header extends Component{
     
-    
+
 state = {clicked: false}
 handleClick=() => {
     this.setState({ clicked : !this.state.clicked})
 }
     render(){
+     
     return (
+        
         <nav className="NavbarItems">
             <h1 className="navbar-logo"> NoName</h1>
             <div className="menu-icon" onClick={this.handleClick}>
