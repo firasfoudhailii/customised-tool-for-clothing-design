@@ -4,6 +4,7 @@ import Login from './components/login/login';
 import Signup from './components/signup/signup';
 import { Route, Switch } from "react-router-dom";
 import Homepage from './pages/home-page';
+import Routes from './Routes'
 
 
 
@@ -13,13 +14,7 @@ function  App() {
 return (
       
 <div className="App">
-<Switch>
-    <Route path='/sign-up' component={Signup} />
-    <Route path='/log-in' component={Login} />
-    <Route path='/Home' component={Homepage} />
-</Switch>
-
-
+<Routes />
 </div>
 
 
