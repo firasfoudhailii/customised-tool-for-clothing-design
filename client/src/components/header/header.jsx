@@ -16,7 +16,7 @@ handleClick=() => {
      
     return (
         
-        <nav className="NavbarItems">
+        <nav className="navbar NavbarItems">
             <h1 className="navbar-logo"> NoName</h1>
             <div className="menu-icon" onClick={this.handleClick}>
                 <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
