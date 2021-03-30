@@ -4,6 +4,8 @@ import Login from './components/login/login';
 import Signup from './components/signup/signup';
 import Homepage from './pages/front/home-page';
 import Contactpage from './pages/front/contact-page';
+import About from './pages/front/about-page';
+
 
 
 
@@ -22,6 +24,7 @@ const Routes = () => {
             <Route path='/login' component={Login} />
             <Route path='/Home' component={Homepage} />
             <Route path='/contactus' component={Contactpage}/>
+            <Route path='/About' component={About} />
         </Switch>
     )
 }
