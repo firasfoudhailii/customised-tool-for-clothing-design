@@ -1,5 +1,6 @@
 import React from 'react';
 import './hero.styles.scss';
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -12,10 +13,20 @@ const Hero = () => {
     START YOUR PROJECT, NOW.
     </h1>
     <div className='try-now-btn'>
+    <Link to="/Prototypes">
     <button className='button is-black' id='try-now'>
       TRY NOW
     </button>
+    </Link>
   </div>
+  <h1 className='hero-title'>
+    ABOVE YOUR CREATIVITY
+    </h1>
+  <div className='try-now-btn'>
+  <button className='button is-black' id='try-now'>
+      SEE THE VIDEO
+    </button>
+    </div>
   </div>
   </div>
   </section>
@@ -23,7 +34,7 @@ const Hero = () => {
   <div class="hero-body">
       <div className='container'>
     <p className='hero-par'>
-    Our project aims to shortcut and merge two phases which are prototyping and industrialization of your product to fit your needs, much more than just design software, it's a digital interconnection platform for the fashion industry.
+    Improve, simplify and make sustainable the design and design of clothing for the whole fashion world, generating innovation paths that lead to significant savings in terms of time, costs and procedures, through an interactive platform that is continuously updated and improved.
     </p>
   
   </div>

@@ -6,12 +6,14 @@
     },
     {
         title: 'About',
-        url: '#',
+        url: 'About',
         cName: 'nav-links'
     },
     {
         title: 'Contact Us',
-        url: '#',
+        url: '/contactus',
         cName: 'nav-links'
-    }
+    },
+
+  
 ]

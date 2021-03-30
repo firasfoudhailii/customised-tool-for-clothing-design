@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import PrototypesContextProvider, { PrototypesContext } from './context/Prototypes-context'
 
 
 
 ReactDOM.render(
 <BrowserRouter>
-
+<PrototypesContextProvider>
     <App />
-   
-</BrowserRouter>,
+</PrototypesContextProvider>
+</BrowserRouter>
+,
  document.getElementById('root')
  );

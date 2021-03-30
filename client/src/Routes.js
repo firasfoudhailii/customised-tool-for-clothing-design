@@ -5,8 +5,8 @@ import Signup from './components/signup/signup';
 import Homepage from './pages/front/home-page';
 import Contactpage from './pages/front/contact-page';
 import About from './pages/front/about-page';
-
-
+import NotFound from './pages/front/notfound-page';
+import AllPrototypes from './pages/front/all-prototype-page';
 
 
 // Components 
@@ -25,6 +25,8 @@ const Routes = () => {
             <Route path='/Home' component={Homepage} />
             <Route path='/contactus' component={Contactpage}/>
             <Route path='/About' component={About} />
+            <Route path='/Prototypes' component={AllPrototypes} />
+            <Route path='*' component={NotFound}/>
         </Switch>
     )
 }

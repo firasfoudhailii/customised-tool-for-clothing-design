@@ -2,6 +2,7 @@ import React, { Component, useContext } from 'react';
 import './header.styles.scss';
 import { menuitems } from './menuitems';
 import { Button } from '../button/Button';
+import { Link } from 'react-router-dom';
 import { auth } from '../../firebase';
 import {useAuth} from '../../context/user-context';
 
@@ -18,10 +19,9 @@ handleClick=() => {
         
         <nav className="NavbarItems">
             <h1 className="navbar-logo"> NoName</h1>
-            <div className="menu-icon" onClick={this.handleClick}>
-                <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-            </div>
+            
             <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                
                 {menuitems.map((item, index) => {
                     return (
                         <li key={index}>
@@ -33,9 +33,13 @@ handleClick=() => {
                 })}
                 
             </ul>
-            <Button>Sign Up</Button>
         
+            <Link to="/signup">
+            <Button>Sign Up</Button>
+            </Link>
+            <Link to="/login">
             <Button>Log In</Button>
+            </Link>
         </nav>
     );
 }
