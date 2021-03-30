@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../components/shared/layout'
-import Hero  from '../components/hero/hero'
+import Layout from '../../components/shared/layout'
+import Hero  from '../../components/hero/hero'
 
 const Homepage = () => {
 

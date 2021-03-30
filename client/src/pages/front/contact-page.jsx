@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
-import Hero from '../../components/hero/hero'
+import React from 'react'
 import Layout from '../../components/shared/layout'
 
 const Contactpage = () => {
     return (
         <Layout>
+            <div className='sign-up'>
             <div class="container has-background-light">
                 <h2 class="title is-2 is-capitalized">Contact Us</h2>
                 <form action="" method="post">
@@ -33,6 +33,7 @@ const Contactpage = () => {
                             <button type="submit" class="button is-success is-size-5">Submit</button>
 			    </form>
             </div>   
+            </div>
     </Layout>
       )
 }
