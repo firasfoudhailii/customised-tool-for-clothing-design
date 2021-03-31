@@ -4,16 +4,20 @@ import * as Palette from '../../../colors'
 // Components:
 import Sidebar from '../../../components/Back/Sidebar/Sidebar';
 import MainView from '../../../components/Back/MainView/MainView';
+import PersistentDrawerLeft from '../../../components/Back/MainView/Nav/Nav'
+import Footer from '../../../components/Back/MainView/Footer/Footer'
+import React from 'react';
+
 
 const Dashboard = () => {
     const backgroundImage = 'images/bg1.jpg';
-    const logo = 'images/logoo.png';
+    const logo = 'images/logo.png';
     const SidebarHeader = {
         fullName: 'NoName.',
         shortName: 'NN'
     };
     const menuItems = [
-        {name: 'Home', to: '/', icon: 'icons/home.svg', subMenuItems: []},
+        {name: 'Home', to: '/homeb', icon: 'icons/home.svg', subMenuItems: []},
         {name: 'Profile', to: '/profileb', icon: 'icons/profile.svg', subMenuItems: []},
         {name: 'Prototypes', to: '/prototypesb', icon: 'icons/prototype.svg', 
         subMenuItems: [
@@ -27,19 +31,23 @@ const Dashboard = () => {
         menu: 'Poppins'
     }
 
-
-
     return (
         <s.App>
             <Sidebar
+            
                backgroundImage={backgroundImage}
                SidebarHeader={SidebarHeader}
                menuItems={menuItems}
                fonts={fonts}
                colorPalette={Palette.preDark}
             />
-            <MainView/>
+            
+            <MainView
+            />
+            <PersistentDrawerLeft/>
+            <Footer/>
         </s.App>
+        
     );
 }
 

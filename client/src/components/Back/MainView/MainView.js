@@ -8,6 +8,7 @@ const MainView = () => {
     <s.MainViewContainer>
         <Routes />
     </s.MainViewContainer>
+
     )
 }
 

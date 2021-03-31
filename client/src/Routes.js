@@ -20,31 +20,24 @@ const Routes = () => {
         <BrowserRouter basename="/">
         <Suspense fallback={<p>...Loading page please wait</p>}>
         <Switch>
-            
-            <Route path='/profileb' 
-            render={(props) => <Profile {...props} />} >
-            </Route>
-            <Route path='/prototypesb' 
-           render={(props) => <Prototypesb {...props} />} >
-           </Route>
+              <Route path='/homeb' component={Home} />
+            <Route path='/profileb' component={Profile} />
+            <Route path='/prototypesb' component={Prototypes} />
+           
             <Route path='/signup' 
             render={(props) => <Signup {...props} />} >
             </Route>            
             <Route path='/login'
             render={(props) => <Login {...props} />} >
             </Route>
-            <Route exact path='/Home' 
-            render={(props) => <Homepage {...props} />} >
-            </Route>
+          
             <Route path='/contactus' 
             render={(props) => <Contactpage {...props} />} >
             </Route>
             <Route path='/About' 
             render={(props) => <About {...props} />} >
             </Route>
-            <Route path='/Prototypes'
-            render={(props) => <AllPrototypes {...props} />} >
-            </Route>
+          
             <Route path='*' 
             render={(props) => <NotFound {...props} />} >
             </Route>
