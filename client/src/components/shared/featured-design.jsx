@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import './featured-design.styles.scss'
 import { Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+
 
 
 const useStyles = makeStyles({
@@ -18,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 const FeaturedDesign = (designs) => {
-    const { title, imageUrl, discription } = designs;
+    const { id, title, imageUrl, discription } = designs;
 
     const classes = useStyles();
 
@@ -30,6 +32,7 @@ const FeaturedDesign = (designs) => {
           className={classes.media}
           image={imageUrl}
           title="Contemplative Reptile"
+          id={id}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -44,9 +47,11 @@ const FeaturedDesign = (designs) => {
         <Button size="small" color="primary">
           Edit
         </Button>
+        <Link to={`/singledesign/${id}`}>
         <Button size="small" color="primary">
           View
         </Button>
+        </Link>
       </CardActions>
     </Card>
     </Grid>

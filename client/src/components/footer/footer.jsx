@@ -8,18 +8,6 @@ const Footer = () => {
     return (
         <div className='footer-container'>
             <section className='footer-subscription'>
-            <p className="footer-subscription-heading">
-            The latest digital interconnection platform for the fashion industry. 
-            </p>
-            <p className="footer-subscription-text">
-                 Join Us.
-                 </p>
-                 <div className="input-areas">
-                     <form>
-                         <input type="email" name="email" placeholder="Your email" className="footer-input" />
-                     <Button buttonStyle='btn--outline'>Subscribe</Button>
-                     </form>
-                 </div>
             </section>
             <div className="footer-links">
                 <div className="footer-link-wrapper">

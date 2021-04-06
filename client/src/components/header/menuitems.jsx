@@ -5,13 +5,13 @@
         cName: 'nav-links'
     },
     {
-        title: 'About',
-        url: 'About',
+        title: 'Designs',
+        url: '/mydesigns',
         cName: 'nav-links'
     },
     {
-        title: 'My Designs',
-        url: '/mydesigns',
+        title: 'About',
+        url: 'About',
         cName: 'nav-links'
     },
     {

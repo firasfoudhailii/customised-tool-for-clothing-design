@@ -9,7 +9,7 @@ const About = React.lazy(() => import ('./pages/front/about-page'));
 const NotFound = React.lazy(() => import ('./pages/front/notfound-page'));
 const AllPrototypes = React.lazy(() => import ('./pages/front/all-prototype-page'));
 const Mydesigns = React.lazy(() => import ('./pages/front/my-designs-page') )
-
+const SingleDesign = React.lazy(() => import ('./pages/front/single-design-page'));
 
 // Components 
 const Home = React.lazy(() => import ('./components/Back/MainView/Home/Home'));
@@ -46,6 +46,9 @@ const Routes = () => {
             </Route>
             <Route path='/mydesigns'
             render={(props) => <Mydesigns {...props} />} >
+            </Route>
+            <Route path='/singledesign/:id'
+            render={(props) => <SingleDesign {...props} />} >
             </Route>
             <Route path='*' 
             render={(props) => <NotFound {...props} />} >
