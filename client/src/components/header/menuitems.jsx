@@ -10,10 +10,16 @@
         cName: 'nav-links'
     },
     {
+        title: 'My Designs',
+        url: '/mydesigns',
+        cName: 'nav-links'
+    },
+    {
         title: 'Contact Us',
         url: '/contactus',
         cName: 'nav-links'
     },
+    
 
   
 ]

@@ -10,7 +10,7 @@ import React from 'react';
 
 
 const Dashboard = () => {
-    const backgroundImage = 'images/bg1.jpg';
+    const backgroundImage = 'images/bga.jpg';
     const logo = 'images/logo.png';
     const SidebarHeader = {
         fullName: 'NoName.',
