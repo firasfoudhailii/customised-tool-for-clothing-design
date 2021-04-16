@@ -10,6 +10,7 @@ const NotFound = React.lazy(() => import ('./pages/front/notfound-page'));
 const AllPrototypes = React.lazy(() => import ('./pages/front/all-prototype-page'));
 const Mydesigns = React.lazy(() => import ('./pages/front/my-designs-page') )
 const SingleDesign = React.lazy(() => import ('./pages/front/single-design-page'));
+const Dashboard = React.lazy(() => import('./pages/back/admin-page'));
 
 // Components 
 const Home = React.lazy(() => import ('./components/Back/MainView/Home/Home'));
@@ -27,6 +28,9 @@ const Routes = () => {
             
             <Route exact path='/Home' 
             render={(props) => <Homepage {...props} />} >
+            </Route>
+            <Route exact path='/Dashboard' 
+            render={(props) => <Dashboard {...props} />} >
             </Route>
             <Route path='/signup' 
             render={(props) => <Signup {...props} />} >
