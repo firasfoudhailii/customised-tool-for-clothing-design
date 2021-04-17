@@ -3,8 +3,7 @@ import './header.styles.scss';
 import { menuitems } from './menuitems';
 import { Button } from '../button/Button';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase';
-import {useAuth} from '../../context/user-context';
+
 
 class Header extends Component{
     
@@ -18,7 +17,7 @@ handleClick=() => {
     return (
         
         <nav className="NavbarItems">
-            <h1 className="navbar-logo"> NoName</h1>
+            <h1 className="navbar-logo"> NO NAME.</h1>
             
             <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                 
