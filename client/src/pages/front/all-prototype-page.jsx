@@ -31,25 +31,16 @@ const AllPrototypes = () => {
     console.log(prototypes);
     return(
         <Layout>
-       {/* <div className='prototype-list-container'>
+        <div className='prototype-list-container'>
            <h2 className='prototype-list-title'>Prototypes</h2>
             <div className='prototype-list'>
                 
                     {prototype}
             </div>
-       </div> */}
+       </div> 
 
-       <Grid>
-           {
-               prototypes.map((prototype) => (
-                   <Grid key={prototype.id} item>
-                           <Prototype Prototype={prototype}/>
-                   </Grid>
-               ))
-           }
-       </Grid>
+    
        </Layout>
-
     );
 }
 

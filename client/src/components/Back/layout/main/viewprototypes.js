@@ -1,105 +1,37 @@
 import React from 'react';
 import PersistentDrawerLeft from '../../MainView/Nav/Nav'
 import Footer from '../../MainView/Footer/Footer'
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import './Home.styles.scss'
+import FeaturedPrototype from '../../../shared/featured-prototype'
+import { PrototypesContext } from '../../../../context/Prototypes-context'
+import '../../../../pages/front/all-prototype-page.styles.scss'
+import { useContext } from 'react';
 
+function Viewprototypes() {
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-}));
-function MainContent() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  const logo = ('images/logo.png')
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const { prototypes } = useContext(PrototypesContext);
+  const allprototypes = prototypes.map(prototype => (
+  <FeaturedPrototype { ...prototype } key={prototype.id} />
+  ));
 
     return (
 
         <main class="page-content" >
           <PersistentDrawerLeft/>
-         
-        <div>qsdqsd</div>
-
-        <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            NN
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Client name"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        className={classes.media}
-        image="/images/pga.jpg"
-        title="Client name"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-        Our project aims to shortcut and merge two phases which are prototyping and industrialization of your product to fit your needs,
-         it's a digital interconnection platform for the fashion industry.
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <div class="logs"><img src={logo}/></div>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-
-      </Collapse>
-    </Card>
-        <Footer/>
+          <div className='prototype-list-container'>
+           <h2 className='prototype-list-title'>Prototypes</h2>
+            <div className='prototype-list'>
+                {
+                    allprototypes
+                }
+                
+            </div>
+       
+       </div>
+       <Footer/>
 
             
         </main>
     )
 }
 
-export default MainContent;
+export default Viewprototypes;

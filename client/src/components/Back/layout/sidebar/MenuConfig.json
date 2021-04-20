@@ -15,10 +15,12 @@
       "submenus": [
         {
           "title": "All prototypes",
-          "url" : "/home"
+          "url" : "/displayp"
         },
         {
-          "title": "Add new prototype"
+          "title": "Add new prototype",
+          "url" : "/Dashboard"
+
         }
       ]
     },
@@ -35,10 +37,13 @@
       "type": "dropdown",
       "submenus": [
         {
-          "title": "All items"
+          "title": "All items",
+          "url": "Displayi"
         },
         {
-          "title": "Add new item"
+          "title": "Add new item",
+          "url" : "/Additem"
+
         }
       ]
     },
