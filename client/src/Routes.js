@@ -11,6 +11,9 @@ const AllPrototypes = React.lazy(() => import ('./pages/front/all-prototype-page
 const Mydesigns = React.lazy(() => import ('./pages/front/my-designs-page') )
 const SingleDesign = React.lazy(() => import ('./pages/front/single-design-page'));
 const Dashboard = React.lazy(() => import('./pages/back/admin-page'));
+const Displayp = React.lazy(() => import('./pages/back/displayp'));
+const Additem = React.lazy(() => import('./pages/back/add-item-page'));
+const Displayi = React.lazy(() => import('./pages/back/displayi'));
 
 // Components 
 const Home = React.lazy(() => import ('./components/Back/MainView/Home/Home'));
@@ -31,6 +34,15 @@ const Routes = () => {
             </Route>
             <Route exact path='/Dashboard' 
             render={(props) => <Dashboard {...props} />} >
+            </Route>
+            <Route exact path='/Additem' 
+            render={(props) => <Additem {...props} />} >
+            </Route>
+            <Route exact path='/Displayi' 
+            render={(props) => <Displayi {...props} />} >
+            </Route>
+            <Route exact path='/Displayp' 
+            render={(props) => <Displayp {...props} />} >
             </Route>
             <Route path='/signup' 
             render={(props) => <Signup {...props} />} >
