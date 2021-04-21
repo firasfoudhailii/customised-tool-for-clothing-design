@@ -2,6 +2,17 @@ const express = require('express');
 const bodyparser = require( 'body-parser');
 const mongoose = require( 'mongoose');
 const cors = require( 'cors');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const rateLimit = require('express-rate-limit');
+const hpp = require('hpp');
+
+
+
+
+
+
 
 require('dotenv')
 //import decodeJWT from './auth/decodeJWT';
@@ -12,6 +23,26 @@ const prototype = require ("./routes/prototype");
 
 const app = express();
 
+// Sanitize data
+app.use(mongoSanitize());
+
+// Set security headers
+app.use(helmet());
+
+// Prevent XSS attacks
+app.use(xss());
+
+// Rate Limiting
+const limiter =rateLimit({
+    windowMs : 10 * 60 * 1000, // 10 mins
+    max: 1 //just for test change it 1000
+});
+app.use(limiter);
+
+// Prevent http param polution
+app.use(hpp());
+
+//
 //app.use(decodeJWT);
 
 app.use(bodyparser.json({ limit: "100mb", extended: true }));
