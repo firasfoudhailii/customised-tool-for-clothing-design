@@ -37,10 +37,6 @@
       "type": "dropdown",
       "submenus": [
         {
-          "title": "All items",
-          "url": "Displayi"
-        },
-        {
           "title": "Add new item",
           "url" : "/Additem"
 

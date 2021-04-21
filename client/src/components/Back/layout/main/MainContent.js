@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PersistentDrawerLeft from '../../MainView/Nav/Nav'
 import Footer from '../../MainView/Footer/Footer'
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,9 +9,6 @@ import Box from '@material-ui/core/Box';
 import MenuItem from '@material-ui/core/MenuItem';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import BackupIcon from '@material-ui/icons/Backup';
-import FileBase from 'react-file-base64';
-import {useDispatch} from 'react-redux';
-import { createPrototype } from '../../../../actions/prototypes';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,13 +48,6 @@ function MainContent() {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState('EUR');
 
-  const [postData, setPostData]=  useState({ name :'', size :'', image :''});
-  const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(createPrototype(postData));
-  };
-  
   const handleChange = (event) => {
     setCurrency(event.target.value);
   };
@@ -71,7 +61,7 @@ function MainContent() {
            alignContent="flex-start"
 
          >
-          <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+          <form className={classes.root} noValidate autoComplete="off">
       
           
           
@@ -82,7 +72,7 @@ function MainContent() {
             <AccountCircle />
           </Grid>
           <Grid item>
-            <TextField id="input-with-icon-grid" label="Name" value={postData.name} name='name' onChange={(e)=> setPostData({...postData, name:e.target.value})} />
+            <TextField id="input-with-icon-grid" label="Name" />
           </Grid>
         </Grid>
   
@@ -93,12 +83,11 @@ function MainContent() {
           </Grid>
           <Grid item>
           <TextField
-          name="size"
           id="standard-select-currency"
           select
           label="Size"
-          value={postData.size}
-          onChange={(e)=> setPostData({...postData, size:e.target.value})}
+          value={currency}
+          onChange={handleChange}
         >
           {currencies.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -111,20 +100,7 @@ function MainContent() {
        
        
 
-        <div className={classes.fileInput}>
-          <FileBase
-                 type="file"
-                 multiple={false}
-                 onDone={({base64}) => setPostData({...postData, image: base64})}
-          />
-         
-        </div>
-
-        <button className={classes.buttonSubmit} size ="large" type= "submit">Submit</button>
-        
-        
-        
-        {/* <Grid container spacing={2} justify-content="column" alignItems="flex-end">
+        <Grid container spacing={2} justify-content="column" alignItems="flex-end">
           <Grid item>
             <BackupIcon />
           </Grid>
@@ -132,7 +108,7 @@ function MainContent() {
             <TextField id="input-with-icon-grid" label="Click here to upload image" />
           </Grid>
         </Grid>
-        */}
+       
         
 
    
