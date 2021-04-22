@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PersistentDrawerLeft from '../../MainView/Nav/Nav'
 import Footer from '../../MainView/Footer/Footer'
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,6 +9,9 @@ import Box from '@material-ui/core/Box';
 import MenuItem from '@material-ui/core/MenuItem';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import BackupIcon from '@material-ui/icons/Backup';
+import FileBase from 'react-file-base64';
+import {useDispatch} from 'react-redux';
+import { createPrototype } from '../../../../actions/prototypes';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +54,12 @@ function MainContent() {
   const handleChange = (event) => {
     setCurrency(event.target.value);
   };
+  const [postData, setPostData]=  useState({ name :'', size :'', image :''});
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createPrototype(postData));
+  };
     return (
 
         <main class="page-content" >
@@ -61,7 +70,7 @@ function MainContent() {
            alignContent="flex-start"
 
          >
-          <form className={classes.root} noValidate autoComplete="off">
+          <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
       
           
           
@@ -72,7 +81,7 @@ function MainContent() {
             <AccountCircle />
           </Grid>
           <Grid item>
-            <TextField id="input-with-icon-grid" label="Name" />
+            <TextField id="input-with-icon-grid" label="Name" value={postData.name} name='name' onChange={(e)=> setPostData({...postData, name:e.target.value})} />
           </Grid>
         </Grid>
   
@@ -86,8 +95,8 @@ function MainContent() {
           id="standard-select-currency"
           select
           label="Size"
-          value={currency}
-          onChange={handleChange}
+          value={postData.size}
+          onChange={(e)=> setPostData({...postData, size:e.target.value})}
         >
           {currencies.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -105,13 +114,17 @@ function MainContent() {
             <BackupIcon />
           </Grid>
           <Grid item>
-            <TextField id="input-with-icon-grid" label="Click here to upload image" />
+          <FileBase
+                 type="file"
+                 multiple={false}
+                 onDone={({base64}) => setPostData({...postData, image: base64})}
+          />
           </Grid>
         </Grid>
        
         
 
-   
+        <button className={classes.buttonSubmit} size ="large" type= "submit">Submit</button>
        
      
     </form>

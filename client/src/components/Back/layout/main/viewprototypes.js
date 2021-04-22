@@ -5,6 +5,7 @@ import FeaturedPrototype from '../../../shared/featured-prototype'
 import { PrototypesContext } from '../../../../context/Prototypes-context'
 import '../../../../pages/front/all-prototype-page.styles.scss'
 import { useContext } from 'react';
+import { render } from '@testing-library/react';
 
 function Viewprototypes() {
 

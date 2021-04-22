@@ -4,7 +4,7 @@ import {  BrowserRouter as Router } from 'react-router-dom';
 import './admin-page.styles.scss';
 import SideBar from '../../components/Back/layout/sidebar/SideBarMenu'
 import { GlobalAppContext } from '../../components/Back/context';
-import Viewprototypes from '../../components/Back/layout/main/Viewprototypes'
+import Viewprototypes from '../../components/Back/layout/main/viewprototypes'
 import ViewItem from '../../components/Back/layout/main/View-items';
 import '../../components/items/item'
 

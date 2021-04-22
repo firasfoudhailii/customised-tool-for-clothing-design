@@ -1,4 +1,5 @@
 const express = require("express");
+const prototype = require("../models/prototype");
 const Prototype = require("../models/prototype");
 const router = express.Router();
 
@@ -22,4 +23,12 @@ router.post('/',async (req,res) => {
         res.status(409).json({message : error.message});
     }
 })
+
+router.delete('/delete/:id',(req,res)=>{
+    let id=req.params.id
+    prototype.findByIdAndDelete(id, function (err) {
+        if (err) return next(err);
+        res.send({success:true});
+});
+});
 module.exports = router;
