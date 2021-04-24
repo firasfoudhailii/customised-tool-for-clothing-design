@@ -19,3 +19,13 @@ export const createPrototype = (prototype) => async (dispatch) =>{
           console.log(error.message)   ;
     }
 }
+
+export const deletePrototype = (id) => async (dispatch) => {
+    try {
+      await api.deletePrototype(id);
+  
+      dispatch({ type: 'DELETE', payload: id });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };

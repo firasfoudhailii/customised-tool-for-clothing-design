@@ -24,7 +24,7 @@ router.post('/',async (req,res) => {
     }
 })
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/:id',async (req,res)=>{
     let id=req.params.id
     prototype.findByIdAndDelete(id, function (err) {
         if (err) return next(err);

@@ -15,7 +15,6 @@ function Dashboard() {
   
 
   return (
-    <Router>
       <GlobalAppContext.Provider
         value={{toggled, setToggled, hasBackground, setHasBackground}}  
       >
@@ -25,7 +24,6 @@ function Dashboard() {
           <MainContent />
         </div>
       </GlobalAppContext.Provider>
-    </Router>
   );
 }
 

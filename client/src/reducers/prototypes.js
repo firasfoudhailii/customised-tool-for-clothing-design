@@ -7,6 +7,8 @@ export default (prototypes = [], action) => {
             return action.payload;
         case 'CREATE':
             return [...prototypes, action.payload];
+        case 'DELETE':
+                return prototypes.filter((prototype) => prototype._id !== action.payload);    
 
         default:
             return prototypes;

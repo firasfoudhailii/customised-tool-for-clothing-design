@@ -16,7 +16,7 @@ handleClick=() => {
      
     return (
         
-        <nav className="NavbarItems">
+        <nav className="NavbarItems" style={{zIndex:"1000"}}>
             <h1 className="navbar-logo"> NO NAME.</h1>
             
             <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
