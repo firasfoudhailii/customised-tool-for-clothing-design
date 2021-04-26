@@ -1,36 +1,103 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+var bcrypt = require('bcrypt-nodejs');
 
-const UserSchema = new mongoose.Schema({
-    name: {
+
+const userSchema = new Schema({
+
+    firstname: {
         type: String,
-        required: [true, 'Please add a name']
+        trim: true,
+        require: true,
+    },
+    lastname: {
+        type: String,
+        trim: true,
+        require: true,
     },
     email: {
         type: String,
-        required: [true, 'Please add an email'],
+        trim: true,
+        require: true,
         unique: true,
-        match: [
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-             'Please add a valid email'     
-             ]
+        lowercase: true
     },
-    role: {
-        type: String,
-        enum: ['user', 'admin'],
-        default : 'user'
-    },
+
     password: {
         type: String,
-        required: [true, 'Please add a password'],
-        minlength: 6,
-        select: false
+        require: true,
     },
-    resetPaswordToken: String,
-    resetPasswordExpire: Date,
-    createdAt: {
-        type: Date,
-        default: Date.now
+
+    role: {
+        type: String
+    },
+
+    resetLink: {
+        data: String,
+        default: ''
+    },
+
+    verified: {
+        type: String
+    }
+
+
+}, { timestamps: true });
+
+
+userSchema.methods.getUser = function() {
+    return ({
+        _id: this._id,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password,
+        role:this.role,
+
+
+    })
+};
+
+
+
+
+
+
+userSchema.pre('save', function(next) {
+    var user = this;
+    if (this.isModified('password') || this.isNew) {
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) {
+                return next(err);
+            }
+
+            bcrypt.hash(user.password, salt, null, function(err, hash) {
+                if (err) {
+                    return next(err);
+                }
+                if (user.password) {
+                    user.password = hash;
+                }
+                next();
+            });
+        });
+    } else {
+        return next();
     }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+userSchema.methods.comparePassword = function(passw, cb) {
+    bcrypt.compare(passw, this.password, function(err, isMatch) {
+        if (err) {
+            return cb(err);
+        }
+        cb(null, isMatch);
+    });
+};
+
+//const User = module.exports = mongoose.model('User', userSchema);
+var userModel = mongoose.model('User', userSchema);
+module.exports = {
+    userModel: userModel,
+    userSchema: userSchema
+};

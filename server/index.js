@@ -1,6 +1,9 @@
 const express = require('express');
-const bodyparser = require('body-parser');
+const app = express();
+
+require('dotenv').config();
 const mongoose = require('mongoose');
+const bodyparser = require('body-parser');
 const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
@@ -8,18 +11,15 @@ const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 
+require("./db/connectDB");
 
 
 
 
 
-
-require('dotenv');
+const usersRoutes = require('./routes/users');
 const contactus = require("./routes/contactus");
 const prototype = require("./routes/prototype");
-
-
-const app = express();
 
 // Sanitize data
 app.use(mongoSanitize());
@@ -40,9 +40,6 @@ app.use(limiter);
 // Prevent http param polution
 app.use(hpp());
 
-
-
-
 app.use(bodyparser.json({ limit: "100mb", extended: true }));
 app.use(bodyparser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cors());
@@ -51,12 +48,30 @@ app.use(cors());
 app.use("/contactus", contactus);
 app.use("/dashboard", prototype);
 app.use("/prototypes", prototype);
-const CONNECTION_URL = 'mongodb+srv://phray:phray123@cluster0.etmzr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-const PORT = process.env.PORT || 5000;
+app.all('/*', function(req, res, next) {
+    // CORS headers
+    res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    // Set custom headers for CORS
+    res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+    if (req.method == 'OPTIONS') {
+        res.status(200).end();
+    } else {
+        next();
+    }
+});
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
-    .catch((error) => console.log(error.message));
 
-mongoose.set('useFindAndModify', false);
+
+//Start the server
+const port = process.env.PORT;
+app.listen(port, () => {
+    console.log(`Server is running on port : ${port}`);
+})
+var publicDir = require('path').join(__dirname, '/public');
+app.use('/uploads', express.static(publicDir));
+
+
+// allow to excutes url of web services in such route
+app.use('/users', usersRoutes);
