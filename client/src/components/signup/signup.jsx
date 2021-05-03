@@ -43,7 +43,7 @@ const Signup = () =>{
     if (Object.keys(errors).length === 0)
       service.register(registerForm).then(
         (res) => {
-          if (!res.message) history.push("/");
+          if (res.message) history.push("/verifyAccount");
           else {
             setMessage(res.message);
           }
@@ -114,7 +114,6 @@ const Signup = () =>{
                                 className='noname-input'
                                 onChange={handleChange}
                                 />
-
                             </div>
 
                             <div className='submit-btn'>
@@ -130,7 +129,7 @@ const Signup = () =>{
                             </div>
 
                             <div>
-                                <Link to='log-in'  className='disc'>
+                                <Link to='login'  className='disc'>
                                     Already have an account? Log In
                                 </Link> 
                             </div>

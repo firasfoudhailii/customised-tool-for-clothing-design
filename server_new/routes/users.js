@@ -537,7 +537,7 @@ router.post('/signup', function(req, res) {
             subject: 'Activation Link',
             html: `
             <h2>Please click on given link to activate your account</h2>
-            <p> ${token}</p>
+            <p>${token}</p>
         `
         };
         transporter.sendMail(mailOptions, function(error, body) {
@@ -549,15 +549,13 @@ router.post('/signup', function(req, res) {
             return res.json({ message: 'Email has been sent, kindly activate your account' });
             console.log(body);
         });
-
-
     });
 });
 
 router.post('/email-activate', function(req, res) {
-    const { token } = req.body;
-    if (token) {
-        jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodedToken) {
+    const { undefined } = req.body;
+    if (undefined) {
+        jwt.verify(undefined, process.env.JWT_ACC_ACTIVATE, function(err, decodedToken) {
             if (err) {
                 return res.status(400).json({ error: 'Incorrect or Expired lin.k' })
             }

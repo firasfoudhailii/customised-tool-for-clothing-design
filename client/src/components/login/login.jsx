@@ -86,6 +86,7 @@ const LogIn = () => {
                                     onChange={handleChange}
                                     />
                                 </div>
+
                                 <div className='submit-btn'>
                                     <button
                                     type='submit'
@@ -93,23 +94,20 @@ const LogIn = () => {
                                     >
                                         Log In
                                     </button>
-                                    
                                 </div>
-                               <div className='error-message'>
-                                   
-                               </div>
-                <div>
-                                <Link to='/'  className='disc'>
+
+                                <div className='error-message'>
+                                </div>
+
+                                <div>
+                                  <Link to='/forgetPassword'  className='disc'>
                                         Forgot Password ?
-                                    </Link>
-                                    <Link to='sign-up'  className='disc'>
+                                  </Link>
+                                  <Link to='signup'  className='disc'>
                                         Need an account? Sign Up
-                                    </Link>
+                                  </Link>
                                 </div>
                             </form>
-                        
-                
-
                 </Formik>
             </div>
 

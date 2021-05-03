@@ -2,7 +2,10 @@ import React, { Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const Login = React.lazy(() => import('./components/login/login'));
+const ForgetPassword = React.lazy(() => import('./components/login/forgetPassword'));
+const ResetPassword = React.lazy(() => import('./components/login/resetPassword'));
 const Signup = React.lazy(() => import ('./components/signup/signup'));
+const VerifyAccount = React.lazy(() => import ('./components/signup/verifyAccount'));
 const Homepage = React.lazy(() => import ('./pages/front/home-page'));
 const Contactpage = React.lazy(() => import ('./pages/front/contact-page'));
 const About = React.lazy(() => import ('./pages/front/about-page'));
@@ -50,11 +53,19 @@ const Routes = () => {
             </Route>
             <Route path='/signup' 
             render={(props) => <Signup {...props} />} >
-            </Route>            
+            </Route>     
+            <Route path='/verifyAccount' 
+            render={(props) => <VerifyAccount {...props} />} >
+            </Route>       
             <Route path='/login'
             render={(props) => <Login {...props} />} >
             </Route>
-          
+            <Route path='/forgetPassword'
+            render={(props) => <ForgetPassword {...props} />} >
+            </Route>
+            <Route path='/resetPassword'
+            render={(props) => <ResetPassword {...props} />} >
+            </Route>
             <Route path='/contactus' 
             render={(props) => <Contactpage {...props} />} >
             </Route>
