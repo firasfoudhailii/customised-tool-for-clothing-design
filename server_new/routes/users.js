@@ -526,7 +526,7 @@ router.post('/signup', function(req, res) {
     const { firstname, lastname, email, password } = req.body;
     User.findOne({ email }).exec((err, user) => {
         if (user) {
-            return res.status(400).json({ error: "User with email already existe." });
+            return res.status(400).json({ error: "User with email already exists." });
         }
         const token = jwt.sign({ firstname, lastname, email, password }, process.env.JWT_ACC_ACTIVATE, { expiresIn: '20m' });
 
@@ -553,16 +553,16 @@ router.post('/signup', function(req, res) {
 });
 
 router.post('/email-activate', function(req, res) {
-    const { undefined } = req.body;
-    if (undefined) {
-        jwt.verify(undefined, process.env.JWT_ACC_ACTIVATE, function(err, decodedToken) {
+    const { token } = req.body;
+    if (token) {
+        jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodedToken) {
             if (err) {
                 return res.status(400).json({ error: 'Incorrect or Expired lin.k' })
             }
             const { firstname, lastname, email, password } = decodedToken;
             User.findOne({ email }).exec((err, user) => {
                 if (user) {
-                    return res.status(400).json({ error: "User with email already existe." });
+                    return res.status(400).json({ error: "User with email already exists." });
                 }
                 let newUser = new User({ firstname, lastname, email, password });
                 newUser.role='ROLE_USER';
@@ -586,7 +586,7 @@ router.post('/forgot-password', function(req, res) {
     const { email } = req.body;
     User.findOne({ email }, (err, user) => {
         if (err || !user) {
-            return res.status(400).json({ error: "User with email does not  existe." });
+            return res.status(400).json({ error: "User with email does not exists." });
         }
         const token = jwt.sign({ _id: user._id }, process.env.RESET_PASSWORD_KEY, { expiresIn: '20m' });
 

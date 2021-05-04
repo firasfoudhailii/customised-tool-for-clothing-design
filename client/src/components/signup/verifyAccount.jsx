@@ -19,14 +19,14 @@ const VerifyAccount = () => {
   let history = useHistory();
 
   const handleChange = (e) => {
-    const { token, value } = e.target;
+    const { name, value } = e.target;
     setErrors({
       ...errors,
-      [token]: "",
+      [name]: "",
     });
     setRegisterForm({
       ...registerForm,
-      [token]: value,
+      [name]: value,
     });
   };
 

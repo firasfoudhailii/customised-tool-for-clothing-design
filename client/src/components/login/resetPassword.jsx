@@ -8,32 +8,30 @@ import service from "../../services/authentitication.service";
 
 
 const ResetPassword = () => {
-/*
+
   const [message, setMessage] = useState();
   const [errors, setErrors] = useState({});
   const [registerForm, setRegisterForm] = useState({
-    token: "",
-    password: "",
+    resetLink: "",
+    newPass: "",
   });
 
   let history = useHistory();
 
   const handleChange = (e) => {
-    const { token, value } = e.target;
+    const { name, value } = e.target;
     setErrors({
       ...errors,
-      [token]: "",
+      [name]: "",
     });
     setRegisterForm({
       ...registerForm,
-      [token]: value,
+      [name]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setErrors(errors);
 
       service.resetPassword(registerForm).then(
         (res) => {
@@ -49,7 +47,7 @@ const ResetPassword = () => {
         }
       );
   };
-*/
+
     return (
         <Layout>
             <div className='card'>    
@@ -58,23 +56,23 @@ const ResetPassword = () => {
             
             <div className='container'>
                 <Formik >
-                            <form /*onSubmit={handleSubmit}*/>
+                            <form onSubmit={handleSubmit}>
                                 <div>
                                     <input
                                     type='text'
-                                    name='token'
+                                    name='resetLink'
                                     placeholder='Enter your reset code'
                                     className='noname-input'
-                                    //onChange={handleChange}
+                                    onChange={handleChange}
                                     />
                                 </div>
                                 <div>
                                     <input
                                     type='password'
-                                    name='password'
+                                    name='newPass'
                                     placeholder='New Password'
                                     className='noname-input'
-                                    //onChange={handleChange}
+                                    onChange={handleChange}
                                     />
                                 </div>
                                 <div className='submit-btn'>
