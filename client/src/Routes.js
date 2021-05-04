@@ -14,7 +14,7 @@ const Dashboard = React.lazy(() => import('./pages/back/admin-page'));
 const Displayp = React.lazy(() => import('./pages/back/displayp'));
 const Additem = React.lazy(() => import('./pages/back/add-item-page'));
 const Displayi = React.lazy(() => import('./pages/back/displayi'));
-
+const MainView = React.lazy(() => import('./tool/mainView'));
 // Components 
 const Home = React.lazy(() => import ('./components/Back/MainView/Home/Home'));
 const Profile = React.lazy(() => import ('./components/Back/MainView/Profile/Profile'));

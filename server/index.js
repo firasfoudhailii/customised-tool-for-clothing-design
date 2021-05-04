@@ -17,6 +17,8 @@ const hpp = require('hpp');
 require('dotenv');
 const contactus = require("./routes/contactus");
 const prototype = require("./routes/prototype");
+const item = require("./routes/items");
+
 
 
 const app = express();
@@ -51,6 +53,9 @@ app.use(cors());
 app.use("/contactus", contactus);
 app.use("/dashboard", prototype);
 app.use("/prototypes", prototype);
+app.use("/items", item);
+
+
 const CONNECTION_URL = 'mongodb+srv://phray:phray123@cluster0.etmzr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const PORT = process.env.PORT || 5000;

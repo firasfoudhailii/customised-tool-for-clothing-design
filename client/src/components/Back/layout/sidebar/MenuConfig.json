@@ -40,6 +40,11 @@
           "title": "Add new item",
           "url" : "/Additem"
 
+        },
+        {
+          "title": "view item",
+          "url" : "/Displayi"
+
         }
       ]
     },
