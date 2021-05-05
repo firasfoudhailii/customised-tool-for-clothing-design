@@ -29,4 +29,14 @@ router.delete('/:id',async (req,res)=>{
         res.send({success:true});
 });
 });
+
+router.get('/search/:id',async (req,res)=>{
+    let id=req.params.id;
+    try {
+        const I = await  item.findById(id);
+        res.status(200).json(I);
+    } catch (error) {
+        res.status(404).json({ message : error.message});
+    }
+});
 module.exports = router;

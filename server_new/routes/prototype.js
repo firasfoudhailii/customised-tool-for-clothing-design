@@ -31,4 +31,14 @@ router.delete('/:id',async (req,res)=>{
         res.send({success:true});
 });
 });
+
+router.get('/search/:id',async (req,res)=>{
+    let id=req.params.id;
+    try {
+        const prototype = await Prototype.findById(id);
+        res.status(200).json(prototype);
+    } catch (error) {
+        res.status(404).json({ message : error.message});
+    }
+})
 module.exports = router;

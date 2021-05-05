@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const prototypeSchema = mongoose.Schema({
+const prototypeSchema = new mongoose.Schema({
     name:String,
     size:String,
     image:String,
