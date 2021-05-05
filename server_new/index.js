@@ -21,7 +21,7 @@ const usersRoutes = require('./routes/users');
 const contactus = require("./routes/contactus");
 const prototype = require("./routes/prototype");
 const item = require("./routes/items");
-
+const customized_design = require("./routes/customized_design");
 
 // Sanitize data
 app.use(mongoSanitize());
@@ -51,6 +51,7 @@ app.use("/contactus", contactus);
 app.use("/dashboard", prototype);
 app.use("/prototypes", prototype);
 app.use("/items", item);
+app.use("/mydesign", customized_design);
 
 app.all('/*', function(req, res, next) {
     // CORS headers
