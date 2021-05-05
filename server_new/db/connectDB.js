@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const logger = require('../middleware/logger');
 
 //connect to db
 mongoose.connect(process.env.DATABASE, {
@@ -6,5 +7,5 @@ mongoose.connect(process.env.DATABASE, {
         useFindAndModify: true,
         useUnifiedTopology: true,
         useCreateIndex: true
-    }).then(() => console.log("DB connected establised"))
-    .catch(err => console.log("DB connection error: ", err));
+    }).then(() => logger.log('info',"DB connected establised"))
+    .catch(err => logger.log('info',"DB connection error: ", err));
