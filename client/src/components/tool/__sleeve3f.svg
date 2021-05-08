@@ -1,0 +1,10 @@
+<svg id="sleevef" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425.2 425.2">
+    <g id="sleevef" data-name="Layer 2">
+        <path id="sleevef" d="M125.1,86.28S99.8,141.5,108.85,287.89c0,0,17-7.21,41.82,5.39l6-43.9-10.9-133.2S133.2,88.68,125.1,86.28Z" style="fill:#fff;stroke:#231f20;stroke-miterlimit:10" />
+        <path id="Profondeur" d="M108.9,303.86s11.25,10.57,39.38,5.17C148.28,309,127.62,298.68,108.9,303.86Z" style="fill:#ccc;stroke:#231f20;stroke-miterlimit:10" />
+        <path d="M108.9,303.86l-.05-16a55.64,55.64,0,0,1,41.82,5.39L148.28,309S132.08,299.81,108.9,303.86Z" style="fill:#fff;stroke:#231f20;stroke-miterlimit:10" />
+        <path id="Profondeur-2" data-name="Profondeur" d="M316.3,303.86S305,314.43,276.92,309C276.92,309,297.58,298.68,316.3,303.86Z" style="fill:#ccc;stroke:#231f20;stroke-miterlimit:10" />
+        <path d="M300.1,86.28s25.3,55.22,16.25,201.61c0,0-17-7.21-41.83,5.4l-6-42.91,10.9-134.2S292,88.68,300.1,86.28Z" style="fill:#fff;stroke:#231f20;stroke-miterlimit:10" />
+        <path d="M316.3,303.86l.05-16a55.64,55.64,0,0,0-41.83,5.4l2.4,15.74S293.12,299.81,316.3,303.86Z" style="fill:#fff;stroke:#231f20;stroke-miterlimit:10" />
+    </g>
+</svg>
